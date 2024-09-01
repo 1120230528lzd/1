@@ -13,6 +13,11 @@ The aim of this project is to compare two different approaches to tomato detecti
   - Caution
   - Conclusion
 - Improved YOLOv8
+  - Method
+    - Data set preparation
+    - SinGAN Class Balancing Method
+    - Improved YOLOv8 network
+  - Experimental
 
 ### Traditional_methods
 This project aims to detect round tomatoes from a picture containing tomatoes through a series of image processing techniques including color segmentation, median filtering, binarization, morphological operations, edge detection and Hough circle detection. The whole processing process aims to improve the image quality, reduce noise and ultimately detect the circular tomato target accurately.
@@ -48,77 +53,54 @@ pip install opencv-python numpy matplotlib
 ###### Conclusion
 <p align="center">
   <a >
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="图片1.png" alt="Logo width="400" height="300">
   </a>
 </p>
 This project successfully detected round tomatoes from an image containing tomatoes through a series of image processing steps. This demonstrates the power of OpenCV in image processing and computer vision tasks.
-eg:
 
-```
-filetree 
-├── ARCHITECTURE.md
-├── LICENSE.txt
-├── README.md
-├── /account/
-├── /bbs/
-├── /docs/
-│  ├── /rules/
-│  │  ├── backend.txt
-│  │  └── frontend.txt
-├── manage.py
-├── /oa/
-├── /static/
-├── /templates/
-├── useless.md
-└── /util/
+### Improved YOLOv8
+In this project, a solution based on an improved YOLOv8s network is proposed to address the need for accurate and efficient monitoring of crop growth status in modern agriculture, especially for the task of accurate detection and segmentation of tomato fruits at different ripening stages. By combining SinGAN class balancing method and deeply optimized YOLOv8 detection algorithm, the solution effectively solves the core challenges of tomato detection, such as class imbalance, difficulty in detecting small targets, and mutual occlusion between fruits.
 
-```
+#### Method
 
+##### Data set preparation
 
+- Data collection: 1,327 original tomato images covering different growth stages, shading degree and distance variation were collected in Changshu Riverside Agricultural Science and Technology Co. in Jiangsu Province.
+- Data set division: 231 images were randomly selected as the validation set, 796 images were used as the original training set, and the rest were used for testing.
+- Data preprocessing: all images were resized to 1280x960, tomatoes in the images were labeled using Labelme tool and classified as ripe, semi-ripe and unripe based on ripeness.
+##### SinGAN Class Balancing Method
+<p align="center">
+  <a >
+    <img src="图片3.png" alt="Logo width="500" height="300">
+  </a>
+</p>
 
+###### Problem Identifiction
+A significant imbalance in the number of tomato samples at the three ripening stages in the original training dataset is found.
+###### Solution:
+A SinGAN-based class balancing method is proposed to increase the sample size of semi-ripe and unripe tomatoes by generating high-quality and class-balanced synthetic images.
 
+##### Improved YOLOv8s network
+<p align="center">
+  <a >
+    <img src="图片2.png" alt="Logo width="500" height="400">
+  </a>
+</p>
 
-### 开发的架构 
+###### Network architecture
 
-请阅读[ARCHITECTURE.md](https://github.com/shaojintian/Best_README_template/blob/master/ARCHITECTURE.md) 查阅为该项目的架构。
+the YOLOv8s model is chosen as the baseline network, which integrates the tasks of object classification, detection, and segmentation in a unified framework.
 
-### 部署
+###### Innovative module 
 
-暂无
+The C2f-DCNv4 module, which incorporates a fourth generation deformable convolutional network (DCNv4), is designed and introduced and deployed in the neck region of the network architecture to further optimize the feature extraction and representation capabilities.
 
-### 使用到的框架
+#### Experimental
 
-- [xxxxxxx](https://getbootstrap.com)
-- [xxxxxxx](https://jquery.com)
-- [xxxxxxx](https://laravel.com)
+##### Performance Evaluation
 
-### 贡献者
+The effectiveness of the SinGAN-based class balancing method is verified through comparative experiments. The YOLOv8s model trained with the enhanced balanced dataset performs well in the tomato detection task, especially in recognizing half-ripe tomatoes, with a significant increase in average precision (AP).
 
-请阅读**CONTRIBUTING.md** 查阅为该项目做出贡献的开发者。
+##### Ablation experiments
 
-#### 如何参与开源项目
-
-贡献使开源社区成为一个学习、激励和创造的绝佳场所。你所作的任何贡献都是**非常感谢**的。
-
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
-### 版本控制
-
-该项目使用Git进行版本管理。您可以在repository参看当前可用版本。
-
-### 作者
-
-xxx@xxxx
-
-知乎:xxxx  &ensp; qq:xxxxxx    
-
- *您也可以在贡献者名单中参看所有参与该项目的开发者。*
-
-
+the ablation experiments further demonstrate the important role of the C2f-DCNv4 module in improving the overall performance of the network, enhancing the feature extraction capability and improving the accuracy of class-specific recognition.
