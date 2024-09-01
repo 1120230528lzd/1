@@ -6,19 +6,13 @@ The aim of this project is to compare two different approaches to tomato detecti
 
 ## Catalogs
 
-- [Traditional methods]
-  - [Dependency library]
-  - [Procedure for use]
-  - [Scripting process]
-- [文件目录说明](#文件目录说明)
-- [开发的架构](#开发的架构)
-- [部署](#部署)
-- [使用到的框架](#使用到的框架)
-- [贡献者](#贡献者)
-  - [如何参与开源项目](#如何参与开源项目)
-- [版本控制](#版本控制)
-- [作者](#作者)
-- [鸣谢](#鸣谢)
+- Traditional methods
+  - Dependency library
+  - Procedure for use
+  - Scripting process
+  - Caution
+  - Conclusion
+- Improved YOLOv8
 
 ### Traditional_methods
 This project aims to detect round tomatoes from a picture containing tomatoes through a series of image processing techniques including color segmentation, median filtering, binarization, morphological operations, edge detection and Hough circle detection. The whole processing process aims to improve the image quality, reduce noise and ultimately detect the circular tomato target accurately.
@@ -47,8 +41,17 @@ pip install opencv-python numpy matplotlib
 - Edge Detection: Detects edges in an image using the Canny edge detection algorithm.
 - Hough Circle Detection: Apply Hough Circle Detection algorithm on the edge image to identify round tomatoes.
 - RESULTS PRESENTATION: Display the processed image, edge detection results and detected round tomatoes using Matplotlib.
-
-Translated with www.DeepL.com/Translator (free version)
+###### Caution
+- Make sure that the image file tomato1.jpg exists in the same directory as the script, otherwise you need to modify the file path in the script.
+- Parameters for Hough circle detection (e.g. param1 and param2) may need to be adjusted based on the actual image to achieve optimal detection.
+- This script may run slower on larger images, especially when performing Hough circle detection.
+###### Conclusion
+<p align="center">
+  <a >
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+</p>
+This project successfully detected round tomatoes from an image containing tomatoes through a series of image processing steps. This demonstrates the power of OpenCV in image processing and computer vision tasks.
 eg:
 
 ```
