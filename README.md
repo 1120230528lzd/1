@@ -8,7 +8,8 @@ The aim of this project is to compare two different approaches to tomato detecti
 
 - [Traditional methods]
   - [Dependency library]
-  - [安装步骤](#安装步骤)
+  - [Procedure for use]
+  - [Scripting process]
 - [文件目录说明](#文件目录说明)
 - [开发的架构](#开发的架构)
 - [部署](#部署)
@@ -26,16 +27,28 @@ This project aims to detect round tomatoes from a picture containing tomatoes th
 - [NumPy]:For working with large multi-dimensional arrays and matrices, and performing efficient mathematical operations.
 - [Matplotlib]:For displaying and visualizing images.
 
-###### **安装步骤**
+###### **Procedure for use**
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+- 1.Install dependent libraries: make sure OpenCV, NumPy and Matplotlib are installed. you can use the pip command to install them:
 
 ```sh
-git clone https://github.com/shaojintian/Best_README_template.git
-```
+pip install opencv-python numpy matplotlib
 
-### 文件目录说明
+```
+- 2.Prepare the image: Name an image containing tomatoes as tomato1.jpg and make sure it is located in the same directory as the Python script.
+- 3.Run Script: Run the Python script directly. The script will automatically load the image, perform a series of image processing steps, and display the results at the end.
+###### Scripting process
+- Image reading: a color image named tomato1.jpg is read using OpenCV.
+- Color Segmentation: highlight the red region (i.e. tomato) by calculating the difference between the red channel and the green channel.
+- Image preprocessing: 
+  - 1.Median Filtering: reduce image noise using median filtering.
+  - 2.Binarization: converts an image to a binary image by automatically determining the threshold value through Otsu thresholding.
+  - 3.Morphological operations: fills holes in binary images using a flood-fill algorithm and performs erosion operations to remove small noise.
+- Edge Detection: Detects edges in an image using the Canny edge detection algorithm.
+- Hough Circle Detection: Apply Hough Circle Detection algorithm on the edge image to identify round tomatoes.
+- RESULTS PRESENTATION: Display the processed image, edge detection results and detected round tomatoes using Matplotlib.
+
+Translated with www.DeepL.com/Translator (free version)
 eg:
 
 ```
