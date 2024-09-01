@@ -12,7 +12,7 @@ The aim of this project is to compare two different approaches to tomato detecti
  
 ## catalogs
 
-- [上手指南](#上手指南)
+- [Traditional methods](#Traditional methods)
   - [开发前的配置要求](#开发前的配置要求)
   - [安装步骤](#安装步骤)
 - [文件目录说明](#文件目录说明)
@@ -25,7 +25,7 @@ The aim of this project is to compare two different approaches to tomato detecti
 - [作者](#作者)
 - [鸣谢](#鸣谢)
 
-### 上手指南
+### Traditional methods
 
 请将所有链接中的“shaojintian/Best_README_template”改为“your_github_name/your_repository”
 
